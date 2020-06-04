@@ -12,7 +12,6 @@ const ModalSuccess = () => {
 
   return (
     <div className="success">
-      {console.log("Fui renderizado")}
       <FiCheckCircle color="#34CB79" size="36" />
       <h1 className="success-message">Cadastro concluído!</h1>
     </div>

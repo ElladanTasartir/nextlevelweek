@@ -1,6 +1,7 @@
 #page-home {
     height: 100vh;
-  
+    opacity: 0;
+    animation: fadeIn 0.2s forwards;
     background: url('../../assets/home-background.svg') no-repeat 700px bottom;
   }
   
