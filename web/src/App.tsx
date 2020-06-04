@@ -1,16 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import Routes from "./routes";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello World</h1>
-      </header>
-    </div>
-  );
+  // const [counter, setCounter] = useState(0); // [valor do estado, função para atualizar o estado]
+  // //sempre que alteramos um estado, a tela é atualizada
+
+  return <Routes />;
 }
 
 export default App;

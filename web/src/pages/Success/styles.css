@@ -1,0 +1,15 @@
+.success {
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.success .success-message {
+    font-family: 'Roboto';
+    color: #FFF;
+    font-size: 32px;
+}
