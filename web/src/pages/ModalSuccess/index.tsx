@@ -1,21 +1,22 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./styles.css";
 import { FiCheckCircle } from "react-icons/fi";
+import "./styles.css";
 
-const Success = () => {
+const ModalSuccess = () => {
   const history = useHistory();
 
   setTimeout(() => {
-    history.push('/');
-  }, 5000);
+    history.push("/");
+  }, 3000);
 
   return (
     <div className="success">
-      <FiCheckCircle color={"#04D361"} size={36} />
+      {console.log("Fui renderizado")}
+      <FiCheckCircle color="#34CB79" size="36" />
       <h1 className="success-message">Cadastro concluído!</h1>
     </div>
   );
 };
 
-export default Success;
+export default ModalSuccess;

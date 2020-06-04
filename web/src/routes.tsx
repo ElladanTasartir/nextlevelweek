@@ -5,7 +5,6 @@ import { Route, BrowserRouter } from "react-router-dom";
 
 import Home from './pages/Home';
 import CreatePoint from './pages/CreatePoint';
-import Success from "./pages/Success/success";
 
 const Routes = () => {
   return (
@@ -13,7 +12,6 @@ const Routes = () => {
       <Route component={Home} path="/" exact />
       {/* Qual componente será renderizado na rota / */}
       <Route component={CreatePoint} path="/create-point" />
-      <Route component={Success} path="/success" />
     </BrowserRouter>
   );
 };
