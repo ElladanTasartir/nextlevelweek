@@ -201,4 +201,5 @@
   .items-grid li.selected {
     background: #E1FAEC;
     border: 2px solid #34CB79;
+    transition: all 200ms;
   }
