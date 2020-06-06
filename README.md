@@ -1,5 +1,5 @@
 <h1 align="center">NEXT LEVEL WEEK 🚀 </h1>
-<img height="400" src="./web/src/assets/Ecoleta.png" align="center">
+<img height="400" src="./web/src/assets/Ecoleta.png" align="right">
 
 ### Descrição:
 
