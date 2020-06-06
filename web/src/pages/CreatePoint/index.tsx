@@ -6,11 +6,15 @@ import { LeafletMouseEvent } from "leaflet";
 import api from "../../services/api";
 import axios from "axios";
 
+import Dropzone from "../../components/Dropzone";
 import ModalSuccess from "../ModalSuccess/index";
 
 import "./styles.css";
 
 import logo from "../../assets/logo.svg";
+
+//Validação do frontend poderia ser feita com Yup, por exemplo
+//No backend, podemos usar o celebrate
 
 interface Item {
   id: number;
@@ -51,6 +55,7 @@ const CreatePoint = () => {
     0,
   ]);
   const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   //Sempre que criamos um estado para um array ou um objeto, precisamos manualmente
   //informar o tipo da variável que será armazenada
@@ -155,16 +160,30 @@ const CreatePoint = () => {
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name,
-      email,
-      whatsapp,
-      uf,
-      city,
-      latitude,
-      longitude,
-      items,
-    };
+    // Já que enviaremos um arquivo, não podemos mais usar JSON, por isso, vamos criar data como FormData
+    const data = new FormData(); //Classe que aceita um multipartform data
+    data.append("name", name);
+    data.append("email", email);
+    data.append("whatsapp", whatsapp);
+    data.append("uf", uf);
+    data.append("city", city);
+    data.append("latitude", String(latitude));
+    data.append("longitude", String(longitude));
+    data.append("items", items.join(","));
+
+    if (selectedFile) data.append("image", selectedFile);
+    // Somente se o usuário tiver colocado a imagem ele dará append nos dados do formData
+
+    // const data = {
+    //   name,
+    //   email,
+    //   whatsapp,
+    //   uf,
+    //   city,
+    //   latitude,
+    //   longitude,
+    //   items,
+    // };
 
     await api.post("/points", data);
 
@@ -186,6 +205,9 @@ const CreatePoint = () => {
         <h1>
           Cadastro do <br /> ponto de coleta
         </h1>
+
+        <Dropzone onFileUploaded={setSelectedFile} />
+        {/* Criamos essa prop */}
 
         <fieldset>
           <legend>

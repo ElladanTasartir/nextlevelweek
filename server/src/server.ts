@@ -4,6 +4,8 @@ import express from 'express';
 //O express não possui uma declaração de tipos
 import cors from 'cors';
 
+import { errors } from 'celebrate';
+
 import path from 'path';
 
 import routes from './routes';
@@ -24,5 +26,8 @@ app.use(routes);
 //Para gerar esse arquivo
 
 app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+
+app.use(errors());
+//lida com a forma que  os erros são enviados para o front
 
 app.listen(3333);
